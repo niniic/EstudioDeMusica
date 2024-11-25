@@ -1,0 +1,37 @@
+<section class="container">
+    <h1 class="text-center">Cadastro de Gravações</h1>
+    <form action="/gravacoes/inserir" method="post">
+        {{!-- Campo 1: data e duracao --}}
+        <section class="row mb-2">
+            <div class="col-md-6">
+                <label for="data_gravacao">Data</label>
+                <input type="date" name="data_gravacao" id="data_gravacao" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+                <label for="duracao">Duração em Minutos</label>
+                <input type="text" name="duracao" id="duracao" class="form-control">
+            </div>
+        </section>
+
+    {{!-- Campo 2: Selecionar o artista --}}
+<section class="mb-2">
+    <label for="artistaId">Escolha o Artista</label>
+    <select class="form-select" name="artistaId" id="artistaId">
+        <option value="">Escolha uma opção...</option>
+        {{#each dados}}
+        <option value="{{dataValues.id}}">{{dataValues.nome}}</option>
+        {{/each}}
+    </select>
+</section>
+
+
+
+        {{!-- Campo 3: Botao de envio --}}
+        <section class="mb-2">
+            <button class="btn btn-dark" type="submit">Cadastrar</button>
+        </section>
+
+
+    </form>
+</section>

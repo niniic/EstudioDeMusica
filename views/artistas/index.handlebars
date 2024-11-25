@@ -1,0 +1,35 @@
+<section class="container">
+    <section class="text-center">
+        <h1>Artistas</h>
+    </section>
+
+    <div class="d-flex">
+        <a href="/artistas/create" class="ms-auto btn btn-dark">Cadastrar novo artista</a>
+    </div>
+
+    <div class="container-fluid mb-4 row row-cols-1 row-cols-md-3 g-4 mt-2">
+        {{#each dados}} <!--Cada dado, mutiplicando a quantidade de produtos-->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{dataValues.nome}}</h5>
+                    <p class="card-text m-0">ID: {{dataValues.id}}</p>
+                    <p class="card-text m-0">Preço: {{dataValues.preco}}</p>
+                    <p class="card-text m-0">Descrição: {{dataValues.descricao}}</p>
+                    <p class="card-text m-0">Gênero: {{dataValues.genero}}</p>
+                </div>
+
+                <div class="card-footer text-body-secondary">
+                  <a href="" class="btn btn-danger" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#modal{{dataValues.id}}">Excluir</a>
+                </div>
+            </div>
+        </div>
+          {{>modalDelete2 idItem=dataValues.id}}
+        {{else}}
+        <p>Nenhum artista cadastrado ainda.</p> 
+
+        {{/each}}
+    </div>
+</section>
